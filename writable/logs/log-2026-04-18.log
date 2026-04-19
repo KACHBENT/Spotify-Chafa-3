@@ -1,0 +1,133 @@
+DEBUG - 2026-04-18 22:41:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 22:41:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-04-18 22:43:43 --> mysqli_sql_exception: Unknown column 'user_ApllP' in 'field list' in C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tb...', 0)
+#1 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tb...')
+#2 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tb...')
+#3 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tb...', Array, false)
+#4 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\BaseModel.php(843): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Model.php(800): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp1\htdocs\Spotify-Chafa-3\app\Controllers\RegisterController.php(38): CodeIgniter\Model->insert(Array)
+#8 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\CodeIgniter.php(933): App\Controllers\RegisterController->save()
+#9 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RegisterController))
+#10 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp1\htdocs\Spotify-Chafa-3\vendor\codeigniter4\framework\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp1\htdocs\Spotify-Chafa-3\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-04-18 22:43:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_ApllP' in 'field list'
+[Method: POST, Route: register/save]
+in SYSTEMPATH\Database\BaseConnection.php on line 692.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (:user_Nombre:, :user_ApllP:, :user_ApllM:, :user_UserName:, :user_Correo:, :user_PasswordHash:, :user_FechaNacimiento:, :user_Pais:, :user_Telefono:, :user_ImageId:, :user_Activo:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\RegisterController.php(38): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\RegisterController->save()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RegisterController))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-18 22:43:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'user_ApllP' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (\'chris\', \'castro\', \'ramirez\', \'chrisAXC\', \'akilesramirez4@gmail.com\', \'$2y$10$DbYjCIEmURw6/KtRQLkJ1OtD8zkq1bybnhfG4aYEgZ8JqvxUVkIjC\', \'2026-04-18\', \'mexico\', \'32555555\', 1, 1)')
+ 2 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (\'chris\', \'castro\', \'ramirez\', \'chrisAXC\', \'akilesramirez4@gmail.com\', \'$2y$10$DbYjCIEmURw6/KtRQLkJ1OtD8zkq1bybnhfG4aYEgZ8JqvxUVkIjC\', \'2026-04-18\', \'mexico\', \'32555555\', 1, 1)')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (:user_Nombre:, :user_ApllP:, :user_ApllM:, :user_UserName:, :user_Correo:, :user_PasswordHash:, :user_FechaNacimiento:, :user_Pais:, :user_Telefono:, :user_ImageId:, :user_Activo:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\RegisterController.php(38): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\RegisterController->save()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RegisterController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-04-18 22:43:43 --> [Caused by] mysqli_sql_exception: Unknown column 'user_ApllP' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (\'chris\', \'castro\', \'ramirez\', \'chrisAXC\', \'akilesramirez4@gmail.com\', \'$2y$10$DbYjCIEmURw6/KtRQLkJ1OtD8zkq1bybnhfG4aYEgZ8JqvxUVkIjC\', \'2026-04-18\', \'mexico\', \'32555555\', 1, 1)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(738): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (\'chris\', \'castro\', \'ramirez\', \'chrisAXC\', \'akilesramirez4@gmail.com\', \'$2y$10$DbYjCIEmURw6/KtRQLkJ1OtD8zkq1bybnhfG4aYEgZ8JqvxUVkIjC\', \'2026-04-18\', \'mexico\', \'32555555\', 1, 1)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(652): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (\'chris\', \'castro\', \'ramirez\', \'chrisAXC\', \'akilesramirez4@gmail.com\', \'$2y$10$DbYjCIEmURw6/KtRQLkJ1OtD8zkq1bybnhfG4aYEgZ8JqvxUVkIjC\', \'2026-04-18\', \'mexico\', \'32555555\', 1, 1)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tbl_ope_users` (`user_Nombre`, `user_ApllP`, `user_ApllM`, `user_UserName`, `user_Correo`, `user_PasswordHash`, `user_FechaNacimiento`, `user_Pais`, `user_Telefono`, `user_ImageId`, `user_Activo`) VALUES (:user_Nombre:, :user_ApllP:, :user_ApllM:, :user_UserName:, :user_Correo:, :user_PasswordHash:, :user_FechaNacimiento:, :user_Pais:, :user_Telefono:, :user_ImageId:, :user_Activo:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(843): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(800): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\RegisterController.php(38): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\RegisterController->save()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RegisterController))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 22:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 22:49:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 22:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 22:49:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 22:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 23:01:05 --> CodeIgniter\HTTP\Exceptions\BadRequestException: The URI you submitted has disallowed characters: "bachata1.mp3 ✅"
+[Method: GET, Route: music/bachata1.mp3%20%E2%9C%85]
+in SYSTEMPATH\Router\Router.php on line 741.
+ 1 SYSTEMPATH\Router\Router.php(207): CodeIgniter\Router\Router->checkDisallowedChars('music/bachata1.mp3 ✅')
+ 2 SYSTEMPATH\CodeIgniter.php(832): CodeIgniter\Router\Router->handle('music/bachata1.mp3 ✅')
+ 3 SYSTEMPATH\CodeIgniter.php(455): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 4 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 23:04:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:10:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:13:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:15:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:19:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:22:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:22:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:22:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:27:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:28:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:29:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:31:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 23:31:14 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: spotify/home]
+in SYSTEMPATH\HTTP\SiteURI.php on line 420.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(394): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\Spotify\Home.php(84): base_url(null)
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp1\\htdocs\\Spotify-Chafa-3\\app\\Views\\Spotify\\Home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Spotify/Home', [], true)
+ 7 APPPATH\Controllers\SpotifyController.php(27): view('Spotify/Home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SpotifyController->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpotifyController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 23:31:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2026-04-18 23:31:16 --> TypeError: CodeIgniter\HTTP\SiteURI::stringifyRelativePath(): Return value must be of type string, null returned
+[Method: GET, Route: spotify/home]
+in SYSTEMPATH\HTTP\SiteURI.php on line 420.
+ 1 SYSTEMPATH\HTTP\SiteURI.php(394): CodeIgniter\HTTP\SiteURI->stringifyRelativePath(null)
+ 2 SYSTEMPATH\Helpers\url_helper.php(59): CodeIgniter\HTTP\SiteURI->baseUrl(null, null)
+ 3 APPPATH\Views\Spotify\Home.php(84): base_url(null)
+ 4 SYSTEMPATH\View\View.php(224): include('C:\\xampp1\\htdocs\\Spotify-Chafa-3\\app\\Views\\Spotify\\Home.php')
+ 5 SYSTEMPATH\View\View.php(227): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 6 SYSTEMPATH\Common.php(1173): CodeIgniter\View\View->render('Spotify/Home', [], true)
+ 7 APPPATH\Controllers\SpotifyController.php(27): view('Spotify/Home', [...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\SpotifyController->home()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\SpotifyController))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-04-18 23:31:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-04-18 23:32:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
