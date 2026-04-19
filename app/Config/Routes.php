@@ -6,132 +6,51 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+// LOGIN
+$routes->get('acceso/login', 'AccesoController::loginShowForm');
+$routes->post('acceso/login', 'AccesoController::login');
+$routes->get('acceso/logout', 'AccesoController::logout');
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('/', 'Home::index');
+
+    $routes->get('spotify/home', 'SpotifyController::home');
+    $routes->get('spotify/buscar', 'SpotifyController::buscar');
+    $routes->get('spotify/biblioteca', 'SpotifyController::biblioteca');
+    $routes->get('spotify/playlist', 'SpotifyController::playlist');
+
+    // Biblioteca
+    $routes->post('spotify/biblioteca/agregar/(:num)', 'SpotifyController::agregarBiblioteca/$1');
+    $routes->get('spotify/biblioteca/quitar/(:num)', 'SpotifyController::quitarBiblioteca/$1');
+});
+// Playlist
+$routes->get('spotify/playlist', 'SpotifyController::playlist');
+$routes->post('spotify/playlist/crear', 'SpotifyController::crearPlaylist');
+$routes->get('spotify/playlist/ver/(:num)', 'SpotifyController::verPlaylist/$1');
+$routes->post('spotify/playlist/agregar-cancion/(:num)', 'SpotifyController::agregarCancionPlaylist/$1');
+$routes->get('spotify/playlist/quitar-cancion/(:num)/(:num)', 'SpotifyController::quitarCancionPlaylist/$1/$2');
+
+// REGISTRO
+$routes->get('register', 'RegisterController::index');
+$routes->post('register/save', 'RegisterController::save');
+
+// RUTAS PROTEGIDAS
+$routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('/', 'Home::index');
+
+    $routes->get('spotify/home', 'SpotifyController::home');
+    $routes->get('spotify/buscar', 'SpotifyController::buscar');
+    $routes->get('spotify/biblioteca', 'SpotifyController::biblioteca');
+    $routes->get('spotify/playlist', 'SpotifyController::playlist');
 });
 
-// ! Login 
+// RUTAS ADMIN
+$routes->group('admin', ['filter' => 'admin'], static function ($routes) {
+    $routes->get('canciones', 'Admin\CancionesController::index');
+    $routes->get('canciones/create', 'Admin\CancionesController::create');
+    $routes->post('canciones/store', 'Admin\CancionesController::store');
+    $routes->get('canciones/edit/(:num)', 'Admin\CancionesController::edit/$1');
+    $routes->post('canciones/update/(:num)', 'Admin\CancionesController::update/$1');
+    $routes->get('canciones/delete/(:num)', 'Admin\CancionesController::delete/$1');
 
-$routes->get(
-    'acceso/login',
-    'AccesoController::loginShowForm'
-);
-$routes->post(
-    'acceso/login',
-    'AccesoController::login'
-);
-$routes->get(
-    'acceso/logout',
-    'AccesoController::logout'
-);
-
-// todo usuarios
-
-$routes->group('usuarios', ['filter' => 'auth'], static function ($routes) {
-    $routes->get(
-        '/',
-        'UsuariosController::index',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->get(
-        'registro',
-        'UsuariosController::create',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'registro',
-        'UsuariosController::store',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'store',
-        'UsuariosController::store',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'update/(:num)',
-        'UsuariosController::update/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'delete/(:num)',
-        'UsuariosController::delete/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'desactivar/(:num)'
-        ,
-        'UsuariosController::deactivate/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'activar/(:num)'
-        ,
-        'UsuariosController::activate/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->get(
-        'registro/resultado',
-        'UsuariosController::resultado',
-        ['filter' => 'role:administrador,empleado']
-    );
-});
-
-//todo Peliculas
-
-$routes->group('peliculas', ['filter' => 'auth'], static function ($routes) {
-    $routes->get(
-        '/',
-        'PeliculasController::index',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'store',
-        'PeliculasController::store',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'desactivar/(:num)',
-        'PeliculasController::deactivate/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'activar/(:num)',
-        'PeliculasController::activate/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'update/(:num)',
-        'PeliculasController::update/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-    $routes->post(
-        'delete/(:num)',
-        'PeliculasController::delete/$1',
-        ['filter' => 'role:administrador,empleado']
-    );
-});
-
-$routes->get(
-    'perfil',
-    'PerfilController::edit'
-);
-$routes->post(
-    'perfil',
-    'PerfilController::update'
-);
-
-$routes->group('api', ['namespace' => 'App\Controllers\Api'], static function ($routes) {
-    $routes->post(
-        'auth/login',
-        'AuthController::login'
-    );
-    $routes->get(
-        'peliculas',
-        'PeliculasController::index'
-    );
-    $routes->get(
-        'peliculas/(:num)',
-        'PeliculasController::show/$1'
-    );
+    
 });
